@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductsComponent } from './products/products.component';
-import { HomeComponent } from './home/home.component';
-import { TecnicoListComponent } from './tecnico/tecnico-list/tecnico-list.component';
+import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProductsComponent } from './components/products/products.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},

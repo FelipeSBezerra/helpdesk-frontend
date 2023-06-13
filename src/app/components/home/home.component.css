@@ -1,5 +1,6 @@
 .card-container{
-    max-height: 90hv;
+    min-height: 560px;
+    height: 90%;
 }
 
 mat-card-header{
@@ -8,16 +9,25 @@ mat-card-header{
 }
 
 mat-card-title {
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
+
 
 p {
     font-size: .8rem;
     margin-bottom: .2rem;
 }
 
+a:visited {
+  color: #000;
+}
+
+a:hover {
+  color: #084c6e;
+}
+
 img {
-    max-height: 25rem;
+    height: 50vh;
     margin-bottom: 2rem;
 }
 
