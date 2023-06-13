@@ -1,0 +1,23 @@
+.card-container{
+    max-height: 90hv;
+}
+
+mat-card-header{
+    justify-content: center;
+    text-align: center;
+}
+
+mat-card-title {
+    font-size: 2rem;
+}
+
+p {
+    font-size: .8rem;
+    margin-bottom: .2rem;
+}
+
+img {
+    max-height: 25rem;
+    margin-bottom: 2rem;
+}
+

@@ -1,0 +1,19 @@
+.btn-container {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.btn .mat-mdc-button-base {
+    width: 6rem;
+    margin-right: 1rem;
+    border-radius: .5rem;
+    color: #FFF;
+}
+
+#btn-salvar .mat-mdc-button-base {
+    background-color: #084c6e;
+}
+
+#btn-cancelar .mat-mdc-button-base {
+    background-color: #d8201a;
+}
