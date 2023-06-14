@@ -1,11 +1,9 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { navbarData } from './nav-data';
+import { LoginService } from 'src/app/service/login.service';
+import { SideNavToggle } from 'src/app/models/sideNavToggle';
 
-interface SideNavToggle {
-  screenWidth: number;
-  collapsed: boolean;
-}
 
 @Component({
   selector: 'app-sidenav',
@@ -40,17 +38,27 @@ interface SideNavToggle {
 })
 export class SidenavComponent implements OnInit {
 
+
+  constructor(private loginService: LoginService) {
+    
+  }
+
+  observarStatusSideNav = this.loginService.status.subscribe((status) => { 
+    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth, statusSideNav: status});
+  });
+
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
   screenWidth = 0;
   navData = navbarData;
+  statusSideNav = true;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any){
     this.screenWidth = window.innerWidth;
     if(this.screenWidth <= 768){
       this.collapsed = false;
-      this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+      this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth, statusSideNav: this.statusSideNav});
     }
   }
 
@@ -60,11 +68,11 @@ export class SidenavComponent implements OnInit {
 
   toggleColapsed(): void {
     this.collapsed = !this.collapsed;
-    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth, statusSideNav: this.statusSideNav});
   }
 
   closeSidenav(): void {
     this.collapsed = false;
-    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth, statusSideNav: this.statusSideNav});
   }
 }

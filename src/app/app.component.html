@@ -1,6 +1,7 @@
-<app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
+<app-sidenav (onToggleSideNav)="onToggleSideNav($event)" *ngIf="statusSideNav"></app-sidenav>
 <app-body
     [collapsed]="isSideNavCollapsed"
     [screenWidth]="screenWidth"
+    [statusSideNav]="statusSideNav"
 ></app-body>
 <app-footer></app-footer>

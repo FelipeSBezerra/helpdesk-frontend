@@ -1,14 +1,11 @@
 .footer {
-    width: calc(100% - 5rem);
-    margin-left: 5rem;
+    width: 100%;
     height: 3.5vh;
     z-index: 0;
     position: fixed;
     bottom: 0;
-    transition: all -5s ease;
     background: #F4F7FA;
     padding: .3rem;
-    transition: all .5s ease;
 }
 
 p {
