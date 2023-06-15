@@ -3,15 +3,31 @@
     <h1>HelpDesk</h1>
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>E-mail</mat-label>
-      <input matInput placeholder="Digite seu email">
+      <input 
+      [formControl]="email"
+      required
+      [(ngModel)]="credenciais.email" 
+      name="email" 
+      matInput placeholder="Digite seu email" 
+      autocomplete="off">
     </mat-form-field>
 
     <mat-form-field class="full-width">
       <mat-label>Senha</mat-label>
-      <input type="password" matInput placeholder="Digite sua senha">
+      <input 
+      [formControl]="senha"
+      required
+      [(ngModel)]="credenciais.senha" 
+      name="senha" 
+      matInput [type]="hide ? 'password' : 'text'" 
+      placeholder="Digite sua senha">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
     </mat-form-field>
+    
     <div class="btn">
-      <button mat-raised-button class="full-width">Login</button>
+      <button [disabled]="!validarCampos()" mat-raised-button class="full-width">Login</button>
     </div>
   </form>
 </div>

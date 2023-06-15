@@ -29,6 +29,10 @@ h1 {
   border-radius: .7rem;
 }
 
+.btn .mat-mdc-button-base:disabled{
+  background-color: #FFF;
+}
+
 ::ng-deep .mdc-text-field--filled .mdc-line-ripple::after {
   border-bottom: none;
 }
@@ -37,6 +41,3 @@ h1 {
   background-color: #FFF;
 }
 
-::ng-deep .mdc-text-field:not(.mdc-text-field-disabled) .mdc-floating-label {
-  color: #084c6e;
-}
