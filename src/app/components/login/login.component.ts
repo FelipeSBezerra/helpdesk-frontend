@@ -8,8 +8,14 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class LoginComponent {
 
+  hide = true;
+
   constructor(private loginService: LoginService){
     this.loginService.setStatus(false);
+  }
+
+  inverte (){
+    this.hide = !this.hide;
   }
 
 }
