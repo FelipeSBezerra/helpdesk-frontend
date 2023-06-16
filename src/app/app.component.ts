@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SideNavToggle } from './models/sideNavToggle';
+import { LoginService } from './service/login.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,11 @@ import { SideNavToggle } from './models/sideNavToggle';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private loginService: LoginService) {
+
+  }
+
   title = 'sidnav-angular';
 
   isSideNavCollapsed = false;
@@ -18,4 +24,8 @@ export class AppComponent {
     this.isSideNavCollapsed = data.collapsed;
     this.statusSideNav = data.statusSideNav;
   }
+
+  observarStatusSideNav = this.loginService.status.subscribe((status) => {
+    this.statusSideNav = status;
+  })
 }

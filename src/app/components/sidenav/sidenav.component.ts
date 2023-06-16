@@ -43,15 +43,15 @@ export class SidenavComponent implements OnInit {
     
   }
 
-  observarStatusSideNav = this.loginService.status.subscribe((status) => { 
-    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth, statusSideNav: status});
-  });
-
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
   screenWidth = 0;
   navData = navbarData;
   statusSideNav = true;
+
+  observarStatusSideNav = this.loginService.status.subscribe((status) => { 
+    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth, statusSideNav: status});
+  });
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any){

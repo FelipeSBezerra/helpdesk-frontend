@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Credenciais } from 'src/app/models/credenciais';
 import { LoginService } from 'src/app/service/login.service';
-import { SnackbarService } from 'src/app/service/snackbar.service';
 
 @Component({
   selector: 'app-login',
@@ -21,13 +21,16 @@ export class LoginComponent {
   email = new FormControl(null, Validators.email);
   senha = new FormControl(null, Validators.minLength(3));
 
-  constructor(private loginService: LoginService, private snackBar: SnackbarService){
+  constructor(private loginService: LoginService, private router: Router){
     this.loginService.setStatus(false);
     this.focus('input-email');
   }
 
   login() : void{
-    this.loginService.login(this.email, this.senha);
+    if (this.loginService.login(this.email, this.senha)) {
+      this.loginService.setStatus(true);
+      this.router.navigate(['/home']);
+    }
   }
 
   focus(idInput: string): void {

@@ -23,11 +23,13 @@ export class LoginService {
     return false;
   }
 
-  login(email: FormControl<null>, senha: FormControl<null>) : void{
+  login(email: FormControl<null>, senha: FormControl<null>) : boolean {
     if (this.validarCampos(email, senha)){
-      this.snackBar.showMessage('E-mail e/ou senha inválidos', true);
+      this.snackBar.showMessage('Login efetuado', false);
+      return true;
     } else {
       this.snackBar.showMessage('Preencha os campos com dados válidos antes de fazer login', true);
+      return false;
     }
   }
 }
