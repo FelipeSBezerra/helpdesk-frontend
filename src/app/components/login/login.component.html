@@ -1,33 +1,38 @@
 <div class="container">
-  <form class="form mat-elevation-z6">
+  <div class="form mat-elevation-z6">
+
     <h1>HelpDesk</h1>
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>E-mail</mat-label>
-      <input 
+      <input id="input-email"
+      autofocus
+      (keydown.enter)="focus('input-senha')"
       [formControl]="email"
       required
-      [(ngModel)]="credenciais.email" 
-      name="email" 
-      matInput placeholder="Digite seu email" 
+      [(ngModel)]="credenciais.email"
+      name="email"
+      matInput placeholder="Digite seu email"
       autocomplete="off">
     </mat-form-field>
 
     <mat-form-field class="full-width">
       <mat-label>Senha</mat-label>
-      <input 
+      <input id="input-senha"
+      (keydown.enter)="login()"
       [formControl]="senha"
       required
-      [(ngModel)]="credenciais.senha" 
-      name="senha" 
-      matInput [type]="hide ? 'password' : 'text'" 
+      [(ngModel)]="credenciais.senha"
+      name="senha"
+      matInput [type]="hide ? 'password' : 'text'"
       placeholder="Digite sua senha">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
-    
+
     <div class="btn">
-      <button [disabled]="!validarCampos()" mat-raised-button class="full-width">Login</button>
+      <button (click)="login()" mat-raised-button class="full-width">Login</button>
     </div>
-  </form>
+
+  </div>
 </div>

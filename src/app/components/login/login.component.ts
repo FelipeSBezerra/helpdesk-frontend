@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Credenciais } from 'src/app/models/credenciais';
 import { LoginService } from 'src/app/service/login.service';
+import { SnackbarService } from 'src/app/service/snackbar.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
 
@@ -20,15 +21,16 @@ export class LoginComponent {
   email = new FormControl(null, Validators.email);
   senha = new FormControl(null, Validators.minLength(3));
 
-  constructor(private loginService: LoginService){
+  constructor(private loginService: LoginService, private snackBar: SnackbarService){
     this.loginService.setStatus(false);
+    this.focus('input-email');
   }
 
-  validarCampos(): boolean {
-    if (this.email.valid && this.senha.valid) {
-      return true
-    }
-    return false;
+  login() : void{
+    this.loginService.login(this.email, this.senha);
   }
 
+  focus(idInput: string): void {
+    document.getElementById(idInput)?.focus();
+  }
 }
