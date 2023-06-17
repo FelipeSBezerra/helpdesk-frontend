@@ -3,6 +3,8 @@ import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/
 import { navbarData } from './nav-data';
 import { LoginService } from 'src/app/service/login.service';
 import { SideNavToggle } from 'src/app/models/sideNavToggle';
+import { Router } from '@angular/router';
+import { SnackbarService } from 'src/app/service/snackbar.service';
 
 
 @Component({
@@ -39,7 +41,7 @@ import { SideNavToggle } from 'src/app/models/sideNavToggle';
 export class SidenavComponent implements OnInit {
 
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router: Router, private snackBar: SnackbarService) {
   }
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
@@ -49,7 +51,7 @@ export class SidenavComponent implements OnInit {
   statusSideNav = true;
 
   observarStatusSideNav = this.loginService.status.subscribe((status) => { 
-    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth, statusSideNav: status});
+    this.onToggleSideNav.emit({collapsed: false, screenWidth: this.screenWidth, statusSideNav: status});
   });
 
   @HostListener('window:resize', ['$event'])
@@ -73,5 +75,11 @@ export class SidenavComponent implements OnInit {
   closeSidenav(): void {
     this.collapsed = false;
     this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth, statusSideNav: this.statusSideNav});
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+    this.snackBar.showMessage('Logout realizado com sucesso', false, 6000);
   }
 }
