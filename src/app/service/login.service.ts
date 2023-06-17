@@ -17,18 +17,14 @@ export class LoginService {
   }
 
   validarCampos(email: FormControl<null>, senha: FormControl<null>): boolean {
-    if (email.valid && senha.valid) {
-      return true
-    }
-    return false;
+      return email.valid && senha.valid;
   }
 
   login(email: FormControl<null>, senha: FormControl<null>) : boolean {
     if (this.validarCampos(email, senha)){
-      this.snackBar.showMessage('Login efetuado', false);
       return true;
     } else {
-      this.snackBar.showMessage('Preencha os campos com dados válidos antes de fazer login', true);
+      this.snackBar.showMessage('Preencha os campos com dados válidos antes de fazer login', true, 5000);
       return false;
     }
   }

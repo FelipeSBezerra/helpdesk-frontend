@@ -4,12 +4,13 @@ import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
+import { authGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'products', component: ProductsComponent},
-  {path: 'tecnicos', component: TecnicoListComponent},
+  {path: 'home', component: HomeComponent, canActivate: [authGuard]},
+  {path: 'products', component: ProductsComponent, canActivate: [authGuard]},
+  {path: 'tecnicos', component: TecnicoListComponent, canActivate: [authGuard]},
   {path: 'login', component: LoginComponent},
 ];
 

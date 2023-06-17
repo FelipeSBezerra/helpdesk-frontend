@@ -40,7 +40,6 @@ export class SidenavComponent implements OnInit {
 
 
   constructor(private loginService: LoginService) {
-    
   }
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
