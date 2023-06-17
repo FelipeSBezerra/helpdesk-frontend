@@ -24,6 +24,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptorProcider } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { LoginComponent } from './components/login/login.component';
     MatSnackBarModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthInterceptorProcider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
