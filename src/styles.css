@@ -40,5 +40,19 @@ body {
   --mdc-snackbar-container-color: #d8201a;
 }
 
+::ng-deep html .mdc-text-field {
+    border-top-left-radius: 2rem;
+    border-top-right-radius: var(--mdc-shape-small, 4px);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    display: inline-flex;
+    align-items: baseline;
+    padding: 0 16px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    will-change: opacity,transform,color;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

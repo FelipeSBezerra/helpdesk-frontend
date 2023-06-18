@@ -1,0 +1,50 @@
+<h1>Cadastro de Técnico</h1>
+
+<mat-card class="card-container">
+    <h4>Dados de Cadastro</h4>
+    <div class="form-container">
+        <section class="section">
+            <div class="tipo">
+                Tipo de usuário
+            </div>
+            <mat-checkbox class="margin">Admin</mat-checkbox>
+            <mat-checkbox class="margin">Cliente</mat-checkbox>
+            <mat-checkbox class="margin">Técnico</mat-checkbox>
+        </section>
+
+        <mat-form-field class="fullwidth" cappearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Ex: Andrêsa Oliveira">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="fullwidth" appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input matInput placeholder="Ex: 000.000.000-00">
+            <mat-icon matSuffix>pin</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="fullwidth" appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input matInput placeholder="Ex: seuemail@mail.com">
+            <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Senha</mat-label> 
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Digite uma senha que não esqueça">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <div class="btn-container">
+            <div class="btn" id="btn-salvar">
+                <button mat-raised-button>Salvar</button>
+            </div>
+            <div class="btn" id="btn-cancelar">
+                <button mat-raised-button>Cancelar</button>
+            </div>
+        </div>
+    </div>
+</mat-card>

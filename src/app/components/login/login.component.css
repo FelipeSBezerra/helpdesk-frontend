@@ -41,3 +41,14 @@ h1 {
   background-color: #FFF;
 }
 
+::ng-deep .mdc-text-field--filled .mdc-line-ripple::after {
+  border-bottom: 3px solid #084c6e;
+}
+
+::ng-deep .mdc-text-field {
+  border-top-left-radius: .7rem !important;
+  border-top-right-radius: 2rem !important;
+  border-bottom-left-radius: 2rem !important;
+  border-bottom-right-radius: 2rem !important;
+}
+

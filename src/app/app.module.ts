@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -19,12 +20,12 @@ import { AppComponent } from './app.component';
 import { BodyComponent } from './components/body/body.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ProductsComponent } from './components/products/products.component';
-import { StatisticsComponent } from './components/statistics/statistics.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptorProcider } from './interceptors/auth.interceptor';
+import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +33,11 @@ import { AuthInterceptorProcider } from './interceptors/auth.interceptor';
     BodyComponent,
     SidenavComponent,
     ProductsComponent,
-    StatisticsComponent,
     FooterComponent,
     HomeComponent,
     TecnicoListComponent,
-    LoginComponent
+    LoginComponent,
+    TecnicoCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +54,7 @@ import { AuthInterceptorProcider } from './interceptors/auth.interceptor';
     ReactiveFormsModule,
     MatSnackBarModule,
     HttpClientModule,
+    MatCheckboxModule,
   ],
   providers: [AuthInterceptorProcider],
   bootstrap: [AppComponent]
