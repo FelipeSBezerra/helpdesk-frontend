@@ -26,6 +26,7 @@ import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptorProcider } from './interceptors/auth.interceptor';
 import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecn
     MatSnackBarModule,
     HttpClientModule,
     MatCheckboxModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [AuthInterceptorProcider],
   bootstrap: [AppComponent]
