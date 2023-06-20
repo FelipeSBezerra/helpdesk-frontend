@@ -1,4 +1,4 @@
-import { Tecnicos } from 'src/app/models/tecnicos';
+import { Tecnico } from 'src/app/models/tecnico';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -11,7 +11,11 @@ export class TecnicoService {
 
   constructor(private http: HttpClient) { }
 
-  findAll(): Observable<Tecnicos[]> {
-    return this.http.get<Tecnicos[]>(`${API_CONFIG.baseUrl}/tecnicos`);
+  findAll(): Observable<Tecnico[]> {
+    return this.http.get<Tecnico[]>(`${API_CONFIG.baseUrl}/tecnicos`);
+  }
+
+  create(tecnico: Tecnico): Observable<Tecnico> {
+    return this.http.post<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos`, tecnico);
   }
 }

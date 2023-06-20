@@ -33,6 +33,7 @@ h4 {
 .card-container {
     margin-top: 2rem;
     height: 75vh;
+    min-height: 570px;
 }
 
 .section {
