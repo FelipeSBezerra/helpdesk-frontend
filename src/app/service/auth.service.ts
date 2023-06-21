@@ -16,6 +16,9 @@ jwtService: JwtHelperService = new JwtHelperService();
   constructor(private http: HttpClient, private snackBar: SnackbarService) { }
 
   authenticate(credenciais: Credenciais): Observable<HttpResponse<string>> {
+    if (localStorage.getItem('token')) {
+      localStorage.clear();
+    }
     return this.http.post(`${API_CONFIG.baseUrl}/login`, credenciais, {
       observe: 'response',
       responseType: 'text'

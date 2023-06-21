@@ -25,9 +25,9 @@ export class LoginComponent {
   senha = new FormControl(null, Validators.minLength(3));
 
   constructor(
-    private loginService: LoginService, 
-    private router: Router, 
-    private authService: AuthService, 
+    private loginService: LoginService,
+    private router: Router,
+    private authService: AuthService,
     private snackBar: SnackbarService
     ){
     this.loginService.setStatus(false);
@@ -43,10 +43,12 @@ export class LoginComponent {
             this.loginService.setStatus(true);
             this.router.navigate(['/home']);
           }
-      }, (e: HttpResponse<string>) => {
-        console.log(e.status);
+      }, (e) => {
+        console.log(e);
         if (e.status == 401) {
           this.snackBar.showMessage('Email e/ou senha inválidos (401)', true, 5000);
+        } else if (e.status == 0){
+          this.snackBar.showMessage('Erro na conexão com o servidor', true, 7000);
         }
       }
       )
