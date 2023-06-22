@@ -1,0 +1,57 @@
+<h1>Excluir Técnico</h1>
+
+<mat-card class="card-container">
+    <h4>Dados de Cadastro</h4>
+    <div class="form-container">
+        <section class="section">
+            <div class="tipo">
+                Tipo de usuário
+            </div>
+            <mat-checkbox class="margin" disabled="true">Admin</mat-checkbox>
+            <mat-checkbox class="margin" disabled="true">Cliente</mat-checkbox>
+            <mat-checkbox class="margin" disabled="true">Técnico</mat-checkbox>
+        </section>
+
+        <mat-form-field class="fullwidth" cappearance="fill">
+            <mat-label>Nome</mat-label>
+            <input 
+            [(ngModel)]="tecnico.nome"
+            name="nome"
+            autocomplete="off"
+            matInput 
+            disabled="true">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="fullwidth" appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input 
+            [(ngModel)]="tecnico.cpf"
+            name="cpf"
+            autocomplete="off"
+            matInput 
+            disabled="true">
+            <mat-icon matSuffix>pin</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="fullwidth" appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input 
+            [(ngModel)]="tecnico.email"
+            name="email"
+            autocomplete="off"
+            matInput 
+            disabled="true">
+            <mat-icon matSuffix>mail</mat-icon>
+        </mat-form-field>
+
+        <div class="btn-container">
+            <div class="btn" id="btn-salvar" (click)="delete()" >
+                <button mat-raised-button>Deletar</button>
+            </div>
+            <div class="btn" id="btn-cancelar" routerLink="../../">
+                <button mat-raised-button>Cancelar</button>
+            </div>
+        </div>
+    </div>
+</mat-card>

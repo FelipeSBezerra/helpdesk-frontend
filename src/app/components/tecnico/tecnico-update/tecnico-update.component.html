@@ -7,34 +7,34 @@
             <div class="tipo">
                 Tipo de usuário
             </div>
-            <mat-checkbox class="margin" (click)="addPerfil('0')">Admin</mat-checkbox>
-            <mat-checkbox class="margin" (click)="addPerfil('1')">Cliente</mat-checkbox>
-            <mat-checkbox class="margin" checked="true" disabled="true">Técnico</mat-checkbox>
+            <mat-checkbox class="margin" name="checkbox-admin" (click)="addPerfil('0')">Admin</mat-checkbox>
+            <mat-checkbox class="margin" name="checkbox-cliente" (click)="addPerfil('1')">Cliente</mat-checkbox>
+            <mat-checkbox class="margin" name="checkbox-tecnico" checked="true" disabled="true">Técnico</mat-checkbox>
         </section>
 
         <mat-form-field class="fullwidth" cappearance="fill">
             <mat-label>Nome</mat-label>
-            <input 
+            <input
             [(ngModel)]="tecnico.nome"
             name="nome"
             autocomplete="off"
             [formControl]="nome"
             maxlength="50"
             required
-            matInput 
+            matInput
             placeholder="Ex: Andrêsa Oliveira">
             <mat-icon matSuffix>person</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="fullwidth" appearance="fill">
             <mat-label>CPF</mat-label>
-            <input 
+            <input
             [(ngModel)]="tecnico.cpf"
             name="cpf"
             autocomplete="off"
             [formControl]="cpf"
             required
-            matInput 
+            matInput
             mask="000.000.000-00"
             placeholder="Ex: 000.000.000-00">
             <mat-icon matSuffix>pin</mat-icon>
@@ -42,26 +42,26 @@
 
         <mat-form-field class="fullwidth" appearance="fill">
             <mat-label>E-mail</mat-label>
-            <input 
+            <input
             [(ngModel)]="tecnico.email"
             name="email"
             autocomplete="off"
             [formControl]="email"
             required
-            matInput 
+            matInput
             placeholder="Ex: seuemail@mail.com">
             <mat-icon matSuffix>mail</mat-icon>
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Nova Senha</mat-label> 
-            <input 
+            <mat-label>Nova Senha</mat-label>
+            <input
             [(ngModel)]="tecnico.senha"
             name="senha"
             autocomplete="off"
             [formControl]="senha"
             required
-            matInput [type]="hide ? 'password' : 'text'" 
+            matInput [type]="hide ? 'password' : 'text'"
             placeholder="Digite uma senha que não esqueça">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

@@ -1,6 +1,6 @@
 import { TecnicoService } from 'src/app/service/tecnico.service';
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { CheckboxControlValueAccessor, FormControl, Validators } from '@angular/forms';
 import { SnackbarService } from 'src/app/service/snackbar.service';
 import { Tecnico } from 'src/app/models/tecnico';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TecnicoUpdateComponent {
 
+  /** se verdadeiro, o type do campo senha se torna "text", caso contrário, "password" */
   hide = true;
 
   tecnico: Tecnico = {
@@ -30,24 +31,26 @@ export class TecnicoUpdateComponent {
   senha: FormControl = new FormControl(null, Validators.minLength(3));
 
   constructor(
-    private snackBar: SnackbarService, 
-    private tecnicoService: TecnicoService, 
-    private router: Router, 
+    private snackBar: SnackbarService,
+    private tecnicoService: TecnicoService,
+    private router: Router,
     private route: ActivatedRoute) {
     this.findbyId(this.route.snapshot.paramMap.get('id') as string);
   }
 
+  /** Buscar os dados atuais do Tecnico selecionado para atualizacao */
   findbyId(id: string): Tecnico | void {
     this.tecnicoService.findById(id).subscribe(resposta => {
       this.tecnico = resposta;
       this.tecnico.senha = '';
-      this.tecnico.perfis = [];
+      this.checarPerfis(this.tecnico.perfis)
       return this.tecnico;
     }, (e) => {
       this.router.navigate(['/tecnicos']);
-    }) 
+    })
   }
 
+  /** Envia a requisicao de atualizacao dos dados do tecnico */
   update(): void {
     if (this.validarCampos()){
       this.formatarCpf(this.tecnico.cpf);
@@ -62,20 +65,62 @@ export class TecnicoUpdateComponent {
         } else {
           this.snackBar.showMessage(ex.error.message, true, 7000);
         };
-        
+
       })
     }
   }
 
+  /** Adiciona o perfil na lista de perfis quando marcada a checkbox*/
   addPerfil(perfil: any): void {
     if (this.tecnico.perfis.includes(perfil)) {
       this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil), 1);
+      this.selecionarPerfil(perfil, false);
     } else {
       this.tecnico.perfis.push(perfil);
+      this.selecionarPerfil(perfil, true);
     }
   }
-  
-  validarCampos(): boolean {
+
+  /** Converte o nome das ROLES recebidas na resposta da api para o codigo equivalente */
+  private checarPerfis(perfis: string[]): string[] {
+    if(perfis.includes('ADMIN')){
+      perfis.splice(perfis.indexOf('ADMIN'), 1);
+      perfis.push('0');
+      this.selecionarPerfil('0', true)
+    }
+    if(perfis.includes('CLIENTE')){
+      perfis.splice(perfis.indexOf('CLIENTE'), 1);
+      perfis.push('1');
+      this.selecionarPerfil('1', true)
+    }
+    if(perfis.includes('TECNICO')){
+      perfis.splice(perfis.indexOf('TECNICO'), 1);
+      perfis.push('2');
+      this.selecionarPerfil('2', true)
+    }
+    return perfis;
+  }
+
+  /** Marca a checkbox referente ao perfil recebido:
+   * @param perfil Informe '0' para Admin, '1' para Cliente ou '2' para Tecnico
+   * @param status Se true, marca a checkbox como checked
+   */
+  private selecionarPerfil(perfil: string, status: boolean) {
+    let elementName: string = 'checkbox';
+
+    switch (perfil) {
+      case '0': elementName = 'checkbox-admin'; break;
+      case '1': elementName = 'checkbox-cliente'; break;
+      case '2': elementName = 'checkbox-tecnico'; break;
+    }
+    const checkbox = (document.getElementsByName(elementName).item(1) as HTMLInputElement);
+    checkbox.checked = status;
+
+
+  }
+
+  /** Valida os campos do formulario */
+  private validarCampos(): boolean {
     if (this.nome.valid && this.cpf.valid && this.email.valid && this.senha.valid) {
       return true;
     } else {
@@ -84,10 +129,11 @@ export class TecnicoUpdateComponent {
     }
   }
 
-  formatarCpf (cpf: string): void {
+  /** Adiciona os caracteres especiais no CPF para envio na requisicao */
+  private formatarCpf (cpf: string): void {
     if(this.tecnico.cpf.length < 14){
-      this.tecnico.cpf = 
-      cpf.substring(0, 3) 
+      this.tecnico.cpf =
+      cpf.substring(0, 3)
       + '.'
       + cpf.substring(3, 6)
       + '.'
