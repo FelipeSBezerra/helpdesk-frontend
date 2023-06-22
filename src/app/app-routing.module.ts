@@ -6,6 +6,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { authGuard } from './auth/auth.guard';
 import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
+import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'products', component: ProductsComponent, canActivate: [authGuard]},
   {path: 'tecnicos', component: TecnicoListComponent, canActivate: [authGuard]},
   {path: 'tecnicos/create', component: TecnicoCreateComponent, canActivate: [authGuard]},
+  {path: 'tecnicos/update/:id', component: TecnicoUpdateComponent, canActivate: [authGuard]},
 ];
 
 @NgModule({

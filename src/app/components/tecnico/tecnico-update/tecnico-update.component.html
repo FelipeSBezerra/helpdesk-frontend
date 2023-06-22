@@ -1,4 +1,4 @@
-<h1>Cadastro de Técnico</h1>
+<h1>Atualizar Dados do Técnico</h1>
 
 <mat-card class="card-container">
     <h4>Dados de Cadastro</h4>
@@ -9,7 +9,7 @@
             </div>
             <mat-checkbox class="margin" (click)="addPerfil('0')">Admin</mat-checkbox>
             <mat-checkbox class="margin" (click)="addPerfil('1')">Cliente</mat-checkbox>
-            <mat-checkbox class="margin" disabled="true" checked="true">Técnico</mat-checkbox>
+            <mat-checkbox class="margin" checked="true" disabled="true">Técnico</mat-checkbox>
         </section>
 
         <mat-form-field class="fullwidth" cappearance="fill">
@@ -54,7 +54,7 @@
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Senha</mat-label> 
+            <mat-label>Nova Senha</mat-label> 
             <input 
             [(ngModel)]="tecnico.senha"
             name="senha"
@@ -69,10 +69,10 @@
         </mat-form-field>
 
         <div class="btn-container">
-            <div class="btn" id="btn-salvar" (click)="create()" >
-                <button mat-raised-button>Salvar</button>
+            <div class="btn" id="btn-salvar" (click)="update()" >
+                <button mat-raised-button>Atualizar</button>
             </div>
-            <div class="btn" id="btn-cancelar" routerLink="../">
+            <div class="btn" id="btn-cancelar" routerLink="../../">
                 <button mat-raised-button>Cancelar</button>
             </div>
         </div>
