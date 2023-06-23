@@ -10,8 +10,8 @@ export const navbarData = [
         label: 'Técnicos'
     },
     {
-        routerLink: 'products',
+        routerLink: 'clientes',
         icon: 'fal fa-user',
-        label: 'Produtos'
+        label: 'Clientes'
     }
 ];

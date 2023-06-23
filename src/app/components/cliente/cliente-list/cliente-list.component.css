@@ -1,0 +1,28 @@
+#table-container {
+  margin-top: 1rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.btn .mat-mdc-button-base {
+  width: 11rem;
+  margin-right: 1rem;
+  border-radius: .5rem;
+  color: #FFF;
+  background-color: #084c6e;
+  margin-top: 2rem;
+}
+
+i {
+  margin-right: .5rem;
+}
+
+.delete {
+  color: #d8201a;
+}
+
+.edit {
+  color: #bab521;
+}
