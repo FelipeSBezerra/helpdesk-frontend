@@ -1,0 +1,66 @@
+<h1>Novo Chamado</h1>
+
+<mat-card class="card-container">
+    <h4>Dados do novo chamado</h4>
+    <div class="form-container">
+        <mat-form-field cappearance="fill">
+            <mat-label>Título do Chamado</mat-label>
+            <input
+            required
+            matInput
+            placeholder="Ex: Reparo do Notebook">
+        </mat-form-field>
+
+        <div class="status-prioridade">
+            <mat-form-field>
+                <mat-label>Prioridade</mat-label>
+                <mat-select>
+                  <mat-option value="0">Baixa</mat-option>
+                  <mat-option value="1">Média</mat-option>
+                  <mat-option value="2">Alta</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Status</mat-label>
+                <mat-select>
+                  <mat-option value="0">Aberta</mat-option>
+                  <mat-option value="1">Em Andamento</mat-option>
+                  <mat-option value="2">Fechada</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="tecnico">
+            <mat-form-field>
+                <mat-label>Técnico</mat-label>
+                <mat-select>
+                  <mat-option value="0">Felipe</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="cliente">
+            <mat-form-field>
+                <mat-label>Cliente</mat-label>
+                <mat-select>
+                  <mat-option value="0">Andrêsa</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Descrição do chamado</mat-label>
+            <textarea class="descricao" matInput></textarea>
+        </mat-form-field>
+
+        <div class="btn-container">
+            <div class="btn" id="btn-salvar">
+                <button mat-raised-button>Salvar</button>
+            </div>
+            <div class="btn" id="btn-cancelar" routerLink="../">
+                <button mat-raised-button>Cancelar</button>
+            </div>
+        </div>
+    </div>
+</mat-card>
