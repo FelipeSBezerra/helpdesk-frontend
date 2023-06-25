@@ -13,5 +13,10 @@ export const navbarData = [
         routerLink: 'clientes',
         icon: 'fal fa-user',
         label: 'Clientes'
+    },
+    {
+        routerLink: 'chamados',
+        icon: 'fal fa-wrench',
+        label: 'Chamados'
     }
 ];

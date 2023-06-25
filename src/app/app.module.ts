@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -33,6 +34,7 @@ import { ClienteListComponent } from './components/cliente/cliente-list/cliente-
 import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
+import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { ClienteDeleteComponent } from './components/cliente/cliente-delete/clie
     ClienteListComponent,
     ClienteCreateComponent,
     ClienteUpdateComponent,
-    ClienteDeleteComponent
+    ClienteDeleteComponent,
+    ChamadoListComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,8 @@ import { ClienteDeleteComponent } from './components/cliente/cliente-delete/clie
     MatSnackBarModule,
     HttpClientModule,
     MatCheckboxModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    MatRadioModule
   ],
   providers: [AuthInterceptorProcider],
   bootstrap: [AppComponent]

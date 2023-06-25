@@ -1,0 +1,42 @@
+#table-container {
+    margin-top: 1rem;
+}
+  
+mat-form-field {
+    width: 100%;
+}
+
+mat-radio-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+.mat-mdc-radio-button.mat-accent {
+    --mdc-radio-selected-focus-icon-color: #084c6e;
+    --mdc-radio-selected-hover-icon-color: #084c6e;
+    --mdc-radio-selected-icon-color: #084c6e;
+    --mdc-radio-selected-pressed-icon-color: #084c6e;
+    --mat-radio-checked-ripple-color: #084c6e;
+}
+  
+.btn .mat-mdc-button-base {
+width: 11rem;
+margin-right: 1rem;
+border-radius: .5rem;
+color: #FFF;
+background-color: #084c6e;
+margin-top: 2rem;
+}
+
+i {
+margin-right: .5rem;
+}
+
+.visibility {
+color: #084c6e;
+}
+
+.edit {
+color: #bab521;
+}
