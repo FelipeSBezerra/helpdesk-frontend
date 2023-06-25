@@ -6,6 +6,7 @@
         <mat-form-field cappearance="fill">
             <mat-label>Título do Chamado</mat-label>
             <input
+            [(ngModel)]="chamado.titulo"
             [formControl]="titulo"
             required
             matInput
@@ -15,7 +16,7 @@
         <div class="status-prioridade">
             <mat-form-field>
                 <mat-label>Prioridade</mat-label>
-                <mat-select [formControl]="prioridade" required>
+                <mat-select [(ngModel)]="chamado.prioridade" [formControl]="prioridade" required>
                   <mat-option value="0">Baixa</mat-option>
                   <mat-option value="1">Média</mat-option>
                   <mat-option value="2">Alta</mat-option>
@@ -24,7 +25,7 @@
 
               <mat-form-field>
                 <mat-label>Status</mat-label>
-                <mat-select [formControl]="status" required>
+                <mat-select [(ngModel)]="chamado.status" [formControl]="status" required>
                   <mat-option value="0">Aberta</mat-option>
                   <mat-option value="1">Em Andamento</mat-option>
                   <mat-option value="2">Fechada</mat-option>
@@ -35,8 +36,8 @@
         <div class="tecnico">
             <mat-form-field>
                 <mat-label>Técnico</mat-label>
-                <mat-select [formControl]="tecnico" required>
-                  <mat-option value="0">Felipe</mat-option>
+                <mat-select [(ngModel)]="chamado.tecnico" [formControl]="tecnico" required>
+                  <mat-option *ngFor="let tecnico of tecnicos" value="{{ tecnico.id }}">{{ tecnico.nome }}</mat-option>
                 </mat-select>
               </mat-form-field>
         </div>
@@ -44,20 +45,20 @@
         <div class="cliente">
             <mat-form-field>
                 <mat-label>Cliente</mat-label>
-                <mat-select [formControl]="cliente" required>
-                  <mat-option value="0">Andrêsa</mat-option>
+                <mat-select [(ngModel)]="chamado.cliente" [formControl]="cliente" required>
+                  <mat-option *ngFor="let cliente of clientes" value="{{cliente.id }}">{{ cliente.nome }}</mat-option>
                 </mat-select>
               </mat-form-field>
         </div>
 
         <mat-form-field>
-            <mat-label>Descrição do chamado</mat-label>
-            <textarea class="descricao" matInput [formControl]="descricao" required></textarea>
+            <mat-label>Observações do chamado</mat-label>
+            <textarea class="descricao" [(ngModel)]="chamado.observacoes" matInput [formControl]="observacoes" required></textarea>
         </mat-form-field>
 
         <div class="btn-container">
             <div class="btn" id="btn-salvar">
-                <button mat-raised-button>Salvar</button>
+                <button (click)="create()" mat-raised-button>Salvar</button>
             </div>
             <div class="btn" id="btn-cancelar" routerLink="../">
                 <button mat-raised-button>Cancelar</button>
