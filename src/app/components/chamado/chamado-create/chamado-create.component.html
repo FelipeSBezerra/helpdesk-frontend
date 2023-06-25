@@ -6,6 +6,7 @@
         <mat-form-field cappearance="fill">
             <mat-label>Título do Chamado</mat-label>
             <input
+            [formControl]="titulo"
             required
             matInput
             placeholder="Ex: Reparo do Notebook">
@@ -14,7 +15,7 @@
         <div class="status-prioridade">
             <mat-form-field>
                 <mat-label>Prioridade</mat-label>
-                <mat-select>
+                <mat-select [formControl]="prioridade" required>
                   <mat-option value="0">Baixa</mat-option>
                   <mat-option value="1">Média</mat-option>
                   <mat-option value="2">Alta</mat-option>
@@ -23,7 +24,7 @@
 
               <mat-form-field>
                 <mat-label>Status</mat-label>
-                <mat-select>
+                <mat-select [formControl]="status" required>
                   <mat-option value="0">Aberta</mat-option>
                   <mat-option value="1">Em Andamento</mat-option>
                   <mat-option value="2">Fechada</mat-option>
@@ -34,7 +35,7 @@
         <div class="tecnico">
             <mat-form-field>
                 <mat-label>Técnico</mat-label>
-                <mat-select>
+                <mat-select [formControl]="tecnico" required>
                   <mat-option value="0">Felipe</mat-option>
                 </mat-select>
               </mat-form-field>
@@ -43,7 +44,7 @@
         <div class="cliente">
             <mat-form-field>
                 <mat-label>Cliente</mat-label>
-                <mat-select>
+                <mat-select [formControl]="cliente" required>
                   <mat-option value="0">Andrêsa</mat-option>
                 </mat-select>
               </mat-form-field>
@@ -51,7 +52,7 @@
 
         <mat-form-field>
             <mat-label>Descrição do chamado</mat-label>
-            <textarea class="descricao" matInput></textarea>
+            <textarea class="descricao" matInput [formControl]="descricao" required></textarea>
         </mat-form-field>
 
         <div class="btn-container">
