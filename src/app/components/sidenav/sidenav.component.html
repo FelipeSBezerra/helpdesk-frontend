@@ -19,6 +19,14 @@
             </a>
         </li>
         <li class="side-nav-item">
+            <a class="sidenav-nav-link" href="https://www.linkedin.com/in/felipesousab/" target="_blank">
+                <i class="sidenav-link-icon fa fa-linkedin"></i>
+                <span class="sidenav-link-text" @fadeIn *ngIf="collapsed">
+                    Linkedin
+                </span>
+            </a>
+        </li>
+        <li class="side-nav-item">
             <div class="sidenav-nav-link" (click)="logout()">
                 <i class="sidenav-link-icon fal fa-sign-out"></i>
                 <span class="sidenav-link-text" @fadeIn *ngIf="collapsed">
