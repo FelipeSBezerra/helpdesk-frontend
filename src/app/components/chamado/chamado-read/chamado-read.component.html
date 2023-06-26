@@ -1,0 +1,65 @@
+<h1>Informações do Chamado</h1>
+
+<mat-card class="card-container">
+    <h4>Dados do chamado</h4>
+    <div class="form-container">
+        <mat-form-field cappearance="fill">
+            <mat-label>Título do Chamado</mat-label>
+            <input
+            [disabled]="true"
+            [(ngModel)]="chamado.titulo"
+            matInput
+            >
+        </mat-form-field>
+
+        <div class="status-prioridade">
+            <mat-form-field>
+                <mat-label>PRIORIDADE ({{ retornaPrioridade(chamado.prioridade) }})</mat-label>
+                <mat-select [disabled]="true" [(ngModel)]="chamado.prioridade">
+                  <mat-option value="0">Baixa</mat-option>
+                  <mat-option value="1">Média</mat-option>
+                  <mat-option value="2">Alta</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>STATUS ({{ retornaStatus(chamado.status) }})</mat-label>
+                <mat-select [disabled]="true" [(ngModel)]="chamado.status">
+                  <mat-option value="0">Aberta</mat-option>
+                  <mat-option value="1">Em Andamento</mat-option>
+                  <mat-option value="2">Fechada</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="tecnico">
+            <mat-form-field>
+                <mat-label>TÉCNICO ({{ chamado.nomeTecnico }})</mat-label>
+                <mat-select [disabled]="true" [(ngModel)]="chamado.tecnico">
+                  <mat-option >{{ chamado.nomeTecnico }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="cliente">
+            <mat-form-field>
+                <mat-label>CLIENTE ({{ chamado.nomeCliente }})</mat-label>
+                <mat-select [disabled]="true" [(ngModel)]="chamado.cliente">
+                  <mat-option >{{ chamado.nomeCliente }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Observações do chamado</mat-label>
+            <textarea class="descricao" [disabled]="true" [(ngModel)]="chamado.observacoes" matInput></textarea>
+        </mat-form-field>
+
+        <div class="btn-container">
+            <div class="btn" id="btn-voltar" routerLink="../../">
+                <button mat-raised-button>Voltar</button>
+            </div>
+        </div>
+    </div>
+</mat-card>
+

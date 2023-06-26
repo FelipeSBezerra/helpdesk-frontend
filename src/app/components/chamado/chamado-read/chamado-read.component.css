@@ -1,0 +1,56 @@
+.card-container {
+    margin-top: 2rem;
+    height: 75vh;
+    min-height: 620px;
+}
+
+h4 {
+    margin-top: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+mat-form-field {
+    width: 80%;
+    margin-left: 10%;
+}
+
+mat-form-field textarea:disabled,
+mat-form-field input:disabled,
+mat-form-field mat-label {
+    color: #161616;
+}
+
+.status-prioridade {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.status-prioridade mat-form-field {
+    width: 49%;
+    margin-left: 0;
+}
+
+.descricao {
+    min-height: 7rem;
+    max-height: 7rem;
+}
+
+.btn-container {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.btn .mat-mdc-button-base {
+    width: 6rem;
+    margin-right: 1rem;
+    border-radius: .5rem;
+    color: #FFF;
+}
+
+#btn-voltar .mat-mdc-button-base {
+    background-color: #084c6e;
+}
