@@ -18,7 +18,7 @@
 }
 
 .logo {
-    background: #FFF;   
+    background: #FFF;
     text-align: center;
     width: 3rem;
     min-width: 3rem;
@@ -47,6 +47,32 @@
     border: none;
 }
 
+.btn-expand {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background-color: #267ca7;
+  top: 0.9rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  right: -2rem;
+  transition: 0.3s;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.btn-expand i {
+  color: #FFF;
+}
+
+.sidenav:hover .btn-expand,
+.btn-expand.hovered {
+  opacity: 1;
+  pointer-events: all;
+}
+
 .fa-times {
     color: #FFF;
     font-size: 24px;
@@ -54,6 +80,12 @@
 
 .sidnav-collapsed {
     width: 16.5rem;
+}
+
+.sidnav-collapsed:hover .btn-expand,
+.btn-expand.hovered {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .sidenave-nav {

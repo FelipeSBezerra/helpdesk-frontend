@@ -1,5 +1,8 @@
 <div class="sidenav" [ngClass]="collapsed ? 'sidnav-collapsed': ''">
     <div class="logo-container">
+        <span class="btn-expand" (click)="toggleColapsed()">
+          <i id="icon-btn-expand" class="fa fa-chevron-right"></i>
+        </span>
         <button class="logo" (click)="toggleColapsed()">HD</button>
         <div class="logo-text" @fadeIn *ngIf="collapsed">HelpDesk</div>
         <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
