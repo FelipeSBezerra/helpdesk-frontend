@@ -2,6 +2,7 @@
     width: calc(100% - 5rem);
     min-height: 96.5vh;
     margin-left: 5rem;
+    min-width: 870px;
     z-index: 0;
     position: relative;
     top: 0;

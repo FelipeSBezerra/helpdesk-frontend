@@ -1,3 +1,3 @@
 export const API_CONFIG = {
-    baseUrl : 'https://api-helpdesk.devfelipe.com:443'
+    baseUrl :  'http://localhost:8080'
 }

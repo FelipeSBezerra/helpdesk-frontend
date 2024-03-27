@@ -1,5 +1,6 @@
 #table-container {
     margin-top: 1rem;
+    overflow-x: auto;
 }
   
 mat-form-field {

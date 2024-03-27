@@ -54,7 +54,7 @@ export class ChamadoUpdateComponent {
   update(): void {
     if (this.validarCompos()){
       this.chamadoService.update(this.route.snapshot.paramMap.get('id') as string, this.chamado).subscribe(resposta => {
-        this.snackBar.showMessage('Chamado criado com sucesso', false);
+        this.snackBar.showMessage('Chamado atualizado com sucesso', false);
         this.router.navigate(['/chamados']);
       }, ex => {
         if (ex.error.errors) {
