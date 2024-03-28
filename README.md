@@ -40,3 +40,29 @@ Certifique-se de ter a versão correta do Node.js e do Angular instalada conform
 Com isso, o projeto estará disponível em ***`http://localhost:4200/`***
 
 ***Observação***: É importante mensionar que a o projeto está configurado para tertar se comunicar com a API em ***`http://localhost:8080/`***. Dessa forma, é necessário que a mesma esteja em execução na porta informada, ou em qualquer outra desde que seja alterada a baseURL no arquivo de configuração do projeto, que está no diretório Config. [Link para repositório da API](https://github.com/FelipeSBezerra/helpdesk-backend).
+
+## Exibição de algumas telas da aplicação.
+
+- **Tela de login**
+![Tela de Login](https://thumbs2.imgbox.com/fa/1b/4mH0Z6BE_t.png)
+
+- **Tela de início (Home)**
+![Tela de Início (Home)](https://thumbs2.imgbox.com/81/48/PBlgGTUu_t.png)
+
+- **Tela de listagem de técnicos**
+![Tela de listagem de técnicos](https://thumbs2.imgbox.com/7b/b8/tfhuSIHl_t.png)
+
+- **Tela de cadastro de técnico**
+![Tela de cadastro de técnico](https://thumbs2.imgbox.com/56/3d/bRwqBjlc_t.png)
+
+- **Tela de listagem de chamados**
+![Tela de listagem de chamados](https://thumbs2.imgbox.com/62/14/jcz7D9ay_t.png)
+
+- **Tela de cadastro de chamado**
+![Tela de cadastro de chamado](https://thumbs2.imgbox.com/5f/87/1tx6XLpT_t.png)
+
+- **Exemplo de Snackbar exibindo informações para o usuário**
+![Exemplo de Snackbar exibindo informações para o usuário](https://thumbs2.imgbox.com/8f/2b/glqRf3Ci_t.png)
+
+- **Tela das informações sobre um chamado**
+![Tela das informações sobre um chamado](https://thumbs2.imgbox.com/a0/a3/QTiP3LLe_t.png)
